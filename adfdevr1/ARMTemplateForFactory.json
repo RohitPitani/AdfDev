@@ -230,7 +230,8 @@
 								"parameters": {}
 							},
 							"fieldList": [
-								"childItems"
+								"childItems",
+								"itemType"
 							],
 							"storeSettings": {
 								"type": "FileServerReadSettings",
@@ -247,7 +248,7 @@
 						"type": "ForEach",
 						"dependsOn": [
 							{
-								"activity": "Get Metadata1",
+								"activity": "Filter1",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -256,7 +257,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"items": {
-								"value": "@activity('Get Metadata1').output.childItems",
+								"value": "@activity('Filter1').output.Value",
 								"type": "Expression"
 							},
 							"isSequential": true,
@@ -403,6 +404,29 @@
 							"referenceName": "AzureSqlDatabase1",
 							"type": "LinkedServiceReference"
 						}
+					},
+					{
+						"name": "Filter1",
+						"type": "Filter",
+						"dependsOn": [
+							{
+								"activity": "Get Metadata1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('Get Metadata1').output.childItems",
+								"type": "Expression"
+							},
+							"condition": {
+								"value": "@not(contains(item().type,'Folder'))",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"policy": {
@@ -423,7 +447,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/dummypipe')]",
+			"name": "[concat(parameters('factoryName'), '/mainpipeline')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
