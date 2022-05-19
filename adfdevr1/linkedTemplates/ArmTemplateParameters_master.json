@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfdevr1"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"FileServer1_password": {
+			"value": ""
+		},
+		"FileServer2_password": {
+			"value": ""
+		},
+		"FileServer3_password": {
+			"value": ""
+		},
+		"dailydeltablob_connectionString": {
+			"value": ""
+		},
+		"dailydeltacore_password": {
+			"value": ""
+		},
+		"moveservice_password": {
+			"value": ""
+		},
+		"testservice_password": {
+			"value": ""
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://keyvault-fng.vault.azure.net/"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"value": "\\\\LAPTOP-DCU7OAKJ\\azure_test"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"value": "rohit1"
+		},
+		"FileServer2_properties_typeProperties_host": {
+			"value": "\\\\LAPTOP-DCU7OAKJ\\daily_delta"
+		},
+		"FileServer2_properties_typeProperties_userId": {
+			"value": "rohit1"
+		},
+		"FileServer3_properties_typeProperties_host": {
+			"value": "\\\\LAPTOP-DCU7OAKJ\\daily_delta"
+		},
+		"FileServer3_properties_typeProperties_userId": {
+			"value": "rohit1"
+		},
+		"dailydeltacore_properties_typeProperties_host": {
+			"value": "\\\\LAPTOP-DCU7OAKJ\\daily_delta\\core"
+		},
+		"dailydeltacore_properties_typeProperties_userId": {
+			"value": "rohit1"
+		},
+		"moveservice_properties_typeProperties_host": {
+			"value": "\\\\LAPTOP-DCU7OAKJ\\daily_delta"
+		},
+		"moveservice_properties_typeProperties_userId": {
+			"value": "rohit1"
+		},
+		"testservice_properties_typeProperties_host": {
+			"value": "\\\\LAPTOP-DCU7OAKJ\\daily_delta"
+		},
+		"testservice_properties_typeProperties_userId": {
+			"value": "rohit1"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
