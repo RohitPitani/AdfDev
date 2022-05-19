@@ -1,0 +1,17 @@
+{
+	"name": "testservice",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "\\\\LAPTOP-DCU7OAKJ\\daily_delta",
+			"userId": "rohit1",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0NDU3MDU3Ni1lYTM0LTQ4N2YtYWU3Ni03YWU0ZDVlYTQ3MzQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "shirIntegrationRunTime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

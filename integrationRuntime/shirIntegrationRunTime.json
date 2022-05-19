@@ -1,0 +1,6 @@
+{
+	"name": "shirIntegrationRunTime",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

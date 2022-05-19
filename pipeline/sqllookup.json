@@ -1,0 +1,63 @@
+{
+	"name": "sqllookup",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select filecount from filecount",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "filecountvar",
+					"value": {
+						"value": "@activity('Lookup1').output.firstrow.filecount",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"filecountvar": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Dev_Upload_data"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-05-19T10:15:18Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
